@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        /* --color-clifford: #da373d; */
+        --animate-wiggle: wiggle 0.5s ease-in-out infinite;
+        @keyframes wiggle {
+          0% {
+            transform: rotate(-10deg);
+          }
+          50% {
+            transform: rotate(10deg);
+          }
+          100% {
+            transform: rotate(-10deg);
+          }
+        }
+      }
+      :root {
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --bg-color: #1c1917;
+        --text-color: #fbbf24;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: var(--font-mono);
+        font-weight: 400;
+        line-height: 1.45;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+      /* body {background-color: #431407; color:#fbbf24;} */
+
+      .hexagon {
+        --size: 160px; /* overall size */
+        --border: 8px; /* border thickness */
+        --border-color: var(--text-color); /* border color */
+        --fill: var(--bg-color); /* inside color */
+
+        width: var(--size);
+        aspect-ratio: 1 / 1; /* keeps it square */
+        position: relative;
+        display: grid;
+        place-items: center; /* centers content */
+        font: 600 16px/1.1 system-ui;
+        color: white;
+      }
+
+      /* Outer hexagon (the border) */
+      .hexagon::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--border-color);
+        clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%);
+        /* clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%) round 12px; */
+      }
+
+      /* Inner hexagon (the fill), inset to reveal border */
+      .hexagon::after {
+        content: "";
+        position: absolute;
+        inset: var(--border);
+        background: var(--fill);
+        clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%);
+        /* clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%) round 12px; */
+      }
+
+      .hexagon > span {
+        position: relative; /* sit above pseudo-elements */
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mt-5 ml-10 flex items-center md:gap-10">
+      <div class="overflow-clip rounded-xl border-amber-500 border-2 md:border-8 w-20 md:max-w-52">
+        <img
+          class="w-full"
+          src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png"
+        />
+        <!-- <div class="bg-[url('https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png')] bg-cover bg-center h-96 rounded-xl shadow-2xl flex items-center justify-center"> -->
+        <!-- <h1 class="text-clifford text-3xl font-bold"></h1> -->
+      </div>
+      <div>
+        <h1 id="typewriter" class="ml-5 md:text-xl font-bold"></h1>
+      </div>
+    </div>
+
+    <script>
+      const words = [
+        "Hey, I'm Shrinath <span class='animate-wiggle inline-block'>👋</span> here,",
+        "Ideas to apps, I engineer.",
+        "Code I craft, come take a peer,",
+        "My GitHub trails are waiting <span class='underline'>Here</span>",
+      ]
+      let i = 0
+      let j = 0
+      let currentWord = ""
+      let isDeleting = false
+      let skipAnimation = 0
+
+      function type() {
+        currentWord = words[i]
+        let completedLines = words.slice(0, i).join("<br>")
+        let currentLine = currentWord.substring(0, j + 1)
+        document.getElementById("typewriter").innerHTML = completedLines + (completedLines ? "<br>" : "") + currentLine
+        if (!isDeleting && j < currentWord.length) {
+          j++
+
+          if (currentWord[j + 3] == "<") skipAnimation += 1
+          if (skipAnimation == 2) skipAnimation = 0
+
+          if (skipAnimation != 0) setTimeout(type, 0)
+          else setTimeout(type, 60)
+        } else if (j === currentWord.length) {
+          isDeleting = false
+          i++
+          j = 0
+          if (i < words.length) {
+            setTimeout(type, 300)
+          }
+        }
+      }
+
+      type()
+    </script>
+  </body>
+</html>
