@@ -41,50 +41,42 @@
       }
       /* body {background-color: #431407; color:#fbbf24;} */
 
-      .hexagon {
-        --size: 160px; /* overall size */
-        --border: 8px; /* border thickness */
-        --border-color: var(--text-color); /* border color */
-        --fill: var(--bg-color); /* inside color */
-
-        width: var(--size);
-        aspect-ratio: 1 / 1; /* keeps it square */
+      article {
+        --c: #d97706;
+        --s0: calc(1.25em + 6px);
+        --s1: calc(1.25em + 6px + 0.5em);
+        place-self: center;
         position: relative;
-        display: grid;
-        place-items: center; /* centers content */
-        font: 600 16px/1.1 system-ui;
-        color: white;
+        width: 80vw;
+        height: 14em;
+        border: solid 0 transparent;
+        border-width: 0 var(--s0) var(--s0) 0;
+        padding: var(--s1) 0.5em 0.5em var(--s1);
+        background: var(--c) padding-box;
+        color: var(--bg-color);
       }
 
-      /* Outer hexagon (the border) */
-      .hexagon::before {
-        content: "";
+      article::before {
         position: absolute;
-        inset: 0;
-        background: var(--border-color);
-        clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%);
-        /* clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%) round 12px; */
-      }
-
-      /* Inner hexagon (the fill), inset to reveal border */
-      .hexagon::after {
+        top: 0;
+        left: 0;
+        border: inherit;
+        border-width: 1.25em 0 0 1.25em;
+        width: 80vw;
+        height: 14em;
+        box-shadow: inset 0 0 0 6px var(--c);
+        mix-blend-mode: difference;
+        pointer-events: none;
         content: "";
-        position: absolute;
-        inset: var(--border);
-        background: var(--fill);
-        clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%);
-        /* clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%) round 12px; */
-      }
-
-      .hexagon > span {
-        position: relative; /* sit above pseudo-elements */
-        z-index: 1;
       }
     </style>
   </head>
-  <body>
-    <div class="mt-5 flex flex-col items-center md:ml-10 md:flex md:items-center gap-10">
-      <div class="overflow-clip rounded-xl border-2 border-amber-500 md:max-w-52 md:border-8">
+  <body class="px-5 pt-5 md:px-20">
+    <div>
+        <h1 class="text-2xl mb-10 text-center">Shrinath [ Web Dev ]</h1>
+    </div>
+    <div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center">
+      <div class="overflow-clip rounded-xl border-4 border-amber-500 md:max-w-52">
         <img
           class="h-[13rem] md:h-full md:w-full"
           src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png"
@@ -93,38 +85,54 @@
         <!-- <h1 class="text-clifford text-3xl font-bold"></h1> -->
       </div>
       <div>
-        <h1 id="typewriter" class="ml-5 text-center font-bold md:text-left md:text-xl"></h1>
+        <h1 id="typewriter" class="ml-5 font-bold md:text-left md:text-xl"></h1>
       </div>
     </div>
 
+    <div id="hidden-content" class="my-20 opacity-0 transition-opacity duration-500 ease-in-out">
+      <article>
+        <h2 class="text-xl font-extrabold">EMS Suite [ PoC Project ]</h2>
+
+        <a href="https://github.com/Shrin210-98/CanteenCrowd-go-api" target="_blank" class="underline">github.com/Shrin210-98/CanteenCrowd-go-api</a>
+        <p class="mt-5">We bring the people of the world together so you can watch them tear each other apart.</p>
+      </article>
+    </div>
+    <div class="py-20"></div>
     <script>
       const words = [
-        "Hey, I'm Shrinath <span class='animate-wiggle inline-block'>👋</span> here,",
+        "Hey <span class='animate-wiggle inline-block'>👋</span> I'm Shrinath here,",
         "Ideas to apps, I engineer.",
-        "Code I craft, come take a peer,",
-        "My GitHub trails are waiting <span class='underline'>Here</span>",
+        "Code I craft, explore with cheer,",
+        "My GitHub trails are waiting <a href='https://github.com/Shrin210-98' target='_blank' class='underline underline-offset-8'> Here </an>",
       ]
       let i = 0
       let j = 0
       let currentWord = ""
-      let isDeleting = false
       let skipAnimation = 0
+      const hiddenContent = document.getElementById("hidden-content")
 
       function type() {
         currentWord = words[i]
         let completedLines = words.slice(0, i).join("<br>")
         let currentLine = currentWord.substring(0, j + 1)
         document.getElementById("typewriter").innerHTML = completedLines + (completedLines ? "<br>" : "") + currentLine
-        if (!isDeleting && j < currentWord.length) {
+        if (j < currentWord.length) {
           j++
 
           if (currentWord[j + 3] == "<") skipAnimation += 1
-          if (skipAnimation == 2) skipAnimation = 0
+          if (skipAnimation == 2) {
+            skipAnimation = 0
+
+            if (i == 3) {
+              // Reveal the hidden content
+              hiddenContent.classList.remove("opacity-0")
+              hiddenContent.classList.add("opacity-100")
+            }
+          }
 
           if (skipAnimation != 0) setTimeout(type, 0)
-          else setTimeout(type, 60)
+          else setTimeout(type, 40)
         } else if (j === currentWord.length) {
-          isDeleting = false
           i++
           j = 0
           if (i < words.length) {
