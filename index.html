@@ -48,7 +48,7 @@
         place-self: center;
         position: relative;
         width: 80vw;
-        height: 14em;
+        height: auto;
         border: solid 0 transparent;
         border-width: 0 var(--s0) var(--s0) 0;
         padding: var(--s1) 0.5em 0.5em var(--s1);
@@ -63,7 +63,7 @@
         border: inherit;
         border-width: 1.25em 0 0 1.25em;
         width: 80vw;
-        height: 14em;
+        height: 110%;
         box-shadow: inset 0 0 0 6px var(--c);
         mix-blend-mode: difference;
         pointer-events: none;
@@ -73,7 +73,7 @@
   </head>
   <body class="px-5 pt-5 md:px-20">
     <div>
-        <h1 class="text-2xl mb-10 text-center">Shrinath [ Web Dev ]</h1>
+      <h1 class="mb-10 text-center text-2xl">Shrinath [ Web Dev ]</h1>
     </div>
     <div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center">
       <div class="overflow-clip rounded-xl border-4 border-[#fbbf24] md:max-w-52">
@@ -91,10 +91,21 @@
 
     <div id="hidden-content" class="my-20 opacity-0 transition-opacity duration-500 ease-in-out">
       <article>
-        <h2 class="text-xl font-extrabold">EMS Suite [ PoC Project ]</h2>
+        <h2 class="text-xl font-extrabold">EMS Suite (PoC Project)</h2>
+        <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite-com</a>
 
-        <a href="https://github.com/Shrin210-98/CanteenCrowd-go-api" target="_blank" class="underline">github.com/Shrin210-98/CanteenCrowd-go-api</a>
-        <p class="mt-5">We bring the people of the world together so you can watch them tear each other apart.</p>
+        <p class="mt-5">
+          - Built in Golang and deployed on AWS, EMS Suite (PoC) is fully cloud-native.<br />
+          - It adopts a permission-first approach, removing rigid role hierarchies.<br />
+          - EMS Suite sets the foundation for next-generation business management systems.<br />
+        </p>
+        <div class="py-5"></div>
+
+        <div>Github:</div>
+        <a href="https://github.com/Shrin210-98/CanteenCrowd-go-api" target="_blank" class="line-clamp-1 underline">
+          github.com/Shrin210-98/CanteenCrowd-go-api
+        </a>
+        <div class="py-5"></div>
       </article>
     </div>
     <div class="py-20"></div>
