@@ -1,1 +1,179 @@
-<!doctype html><html><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" /><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style type="text/tailwindcss"> @theme { /* --color-clifford: #da373d; */ --animate-wiggle: wiggle 0.5s ease-in-out infinite; @keyframes wiggle { 0% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } 100% { transform: rotate(-10deg); } } } :root { --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; --bg-color: #1c1917; --text-color: #fbbf24; } html, body { height: 100%; margin: 0; font-family: var(--font-mono); font-weight: 400; line-height: 1.45; background-color: var(--bg-color); color: var(--text-color); } /* body {background-color: #431407; color:#fbbf24;} */ article { --c: var(--text-color); --s0: calc(1.25em + 6px); --s1: calc(1.25em + 6px + 0.5em); place-self: center; position: relative; width: 80vw; height: auto; border: solid 0 transparent; border-width: 0 var(--s0) var(--s0) 0; padding: var(--s1) 0.5em 0.5em var(--s1); background: var(--c) padding-box; color: var(--bg-color); } article::before { position: absolute; top: 0; left: 0; border: inherit; border-width: 1.25em 0 0 1.25em; width: 80vw; height: 109%; box-shadow: inset 0 0 0 6px var(--c); mix-blend-mode: difference; pointer-events: none; content: ""; } /* Small screen adjustment */ @media (max-width: 600px) { article::before { height: 105%; } } </style></head><body class="px-5 pt-5 md:px-20"><div><h1 class="mb-10 text-center text-2xl">Shrinath [ Web Dev ]</h1></div><div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center md:justify-center"><div class="relative overflow-clip rounded-xl md:max-w-52"><div id="skeleton" class="absolute flex h-[17em] w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700"><svg class="h-10 w-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18" ><path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" /></svg></div><img id="real-image" class="h-[17em] w-full scale-105 opacity-0 transition-all duration-[2000ms] md:h-full" src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png" onload="setTimeout(() => { document.getElementById('real-image').classList.remove('opacity-0', 'scale-105'); document.getElementById('real-image').classList.add('opacity-100', 'scale-100'); document.getElementById('skeleton').classList.add('hidden'); }, 4000);" /></div><div><h1 id="typewriter" class="ml-5 font-bold md:text-left md:text-xl"></h1></div></div><div id="hidden-content" class="my-10 opacity-0 transition-opacity duration-500 ease-in-out md:my-20"><article><h2 class="animate-pulse text-xl font-extrabold">EMS Suite (PoC Project)</h2><a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a><p class="mt-5"></p><p class="mb-3">- Built in Golang and deployed on AWS, EMS Suite (PoC) is fully cloud-native.<br /></p><p class="mb-3">- EMS Suite sets the foundation for next-generation business management systems.<br /></p><p class="mb-3">- It adopts a permission-first approach, removing rigid role hierarchies.<br /></p><div class="mt-5">Github:</div><a href="https://github.com/Shrin210-98/CanteenCrowd-go-api" target="_blank" class="line-clamp-1 underline"> github.com/Shrin210-98/CanteenCrowd-go-api </a><div class="py-5"></div></article></div><div class="py-20"></div><script> const words = [ "Hey <span class='animate-wiggle inline-block'>👋</span> I'm Shrinath here,", "Ideas to apps, I engineer.", "Code I craft, explore with cheer,", "My GitHub trails are waiting <a href='https://github.com/Shrin210-98' target='_blank' class='underline underline-offset-8 animate-pulse'> Here </an>", ] let i = 0 let j = 0 let currentWord = "" let skipAnimation = 0 const hiddenContent = document.getElementById("hidden-content") function type() { currentWord = words[i] let completedLines = words.slice(0, i).join("<br>") let currentLine = currentWord.substring(0, j + 1) document.getElementById("typewriter").innerHTML = completedLines + (completedLines ? "<br>" : "") + currentLine if (j < currentWord.length) { j++ if (currentWord[j + 3] == "<") skipAnimation += 1 if (skipAnimation == 2) { skipAnimation = 0 if (i == 3) { // Reveal the hidden content hiddenContent.classList.remove("opacity-0") hiddenContent.classList.add("opacity-100") } } if (skipAnimation != 0) setTimeout(type, 0) else setTimeout(type, 40) } else if (j === currentWord.length) { i++ j = 0 if (i < words.length) { setTimeout(type, 300) } } } type() </script></body></html>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        /* --color-clifford: #da373d; */
+        --animate-wiggle: wiggle 0.5s ease-in-out infinite;
+        @keyframes wiggle {
+          0% {
+            transform: rotate(-10deg);
+          }
+          50% {
+            transform: rotate(10deg);
+          }
+          100% {
+            transform: rotate(-10deg);
+          }
+        }
+      }
+      :root {
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --bg-color: #1c1917;
+        --text-color: #fbbf24;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: var(--font-mono);
+        font-weight: 400;
+        line-height: 1.45;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+      /* body {background-color: #431407; color:#fbbf24;} */
+
+      article {
+        --c: var(--text-color);
+        --s0: calc(1.25em + 6px);
+        --s1: calc(1.25em + 6px + 0.5em);
+        place-self: center;
+        position: relative;
+        width: 80vw;
+        height: auto;
+        border: solid 0 transparent;
+        border-width: 0 var(--s0) var(--s0) 0;
+        padding: var(--s1) 0.5em 0.5em var(--s1);
+        background: var(--c) padding-box;
+        color: var(--bg-color);
+      }
+
+      article::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: inherit;
+        border-width: 1.25em 0 0 1.25em;
+        width: 80vw;
+        height: 109%;
+        box-shadow: inset 0 0 0 6px var(--c);
+        mix-blend-mode: difference;
+        pointer-events: none;
+        content: "";
+      }
+      /* Small screen adjustment */
+      @media (max-width: 600px) {
+        article::before {
+          height: 105%;
+        }
+      }
+    </style>
+  </head>
+  <body class="px-5 pt-5 md:px-20">
+    <div>
+      <h1 class="mb-10 text-center text-2xl">Shrinath [ Web Dev ]</h1>
+    </div>
+    <div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center md:justify-center">
+      <div class="relative overflow-clip rounded-xl md:max-w-52">
+        <div id="skeleton" class="absolute flex h-[17em] w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700">
+          <svg
+            class="h-10 w-10 text-gray-200 dark:text-gray-600"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 18"
+          >
+            <path
+              d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"
+            />
+          </svg>
+        </div>
+        <img
+          id="real-image"
+          class="h-[17em] w-full scale-105 opacity-0 transition-all duration-[2000ms] md:h-full"
+          src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png"
+          onload="setTimeout(() => {       
+          document.getElementById('real-image').classList.remove('opacity-0', 'scale-105');
+          document.getElementById('real-image').classList.add('opacity-100', 'scale-100');
+                document.getElementById('skeleton').classList.add('hidden');
+              }, 4000);"
+        />
+      </div>
+
+      <div>
+        <h1 id="typewriter" class="ml-5 font-bold md:text-left md:text-xl"></h1>
+      </div>
+    </div>
+
+    <div id="hidden-content" class="my-10 opacity-0 transition-opacity duration-500 ease-in-out md:my-20">
+      <article>
+        <h2 class="animate-pulse text-xl font-extrabold">EMS Suite (PoC Project)</h2>
+        <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a>
+
+        <p class="mt-5"></p>
+        <p class="mb-3">- Built in Golang and deployed on AWS, EMS Suite (PoC) is fully cloud-native.<br /></p>
+        <p class="mb-3">- EMS Suite sets the foundation for next-generation business management systems.<br /></p>
+        <p class="mb-3">- It adopts a permission-first approach, removing rigid role hierarchies.<br /></p>
+
+        <div class="mt-5">Github:</div>
+        <a href="https://github.com/Shrin210-98/CanteenCrowd-go-api" target="_blank" class="line-clamp-1 underline">
+          github.com/Shrin210-98/CanteenCrowd-go-api
+        </a>
+        <div class="py-5"></div>
+      </article>
+    </div>
+    <div class="py-20"></div>
+    <script>
+      const words = [
+        "Hey <span class='animate-wiggle inline-block'>👋</span> I'm Shrinath here,",
+        "Ideas to apps, I engineer.",
+        "Code I craft, explore with cheer,",
+        "My GitHub trails are waiting <a href='https://github.com/Shrin210-98' target='_blank' class='underline underline-offset-8 animate-pulse'> Here </an>",
+      ]
+      let i = 0
+      let j = 0
+      let currentWord = ""
+      let skipAnimation = 0
+      const hiddenContent = document.getElementById("hidden-content")
+
+      function type() {
+        currentWord = words[i]
+        let completedLines = words.slice(0, i).join("<br>")
+        let currentLine = currentWord.substring(0, j + 1)
+        document.getElementById("typewriter").innerHTML = completedLines + (completedLines ? "<br>" : "") + currentLine
+        if (j < currentWord.length) {
+          j++
+
+          if (currentWord[j + 3] == "<") skipAnimation += 1
+          if (skipAnimation == 2) {
+            skipAnimation = 0
+
+            if (i == 3) {
+              // Reveal the hidden content
+              hiddenContent.classList.remove("opacity-0")
+              hiddenContent.classList.add("opacity-100")
+            }
+          }
+          if (skipAnimation != 0) setTimeout(type, 0)
+          else setTimeout(type, 40)
+        } else if (j === currentWord.length) {
+          i++
+          j = 0
+          if (i < words.length) {
+            setTimeout(type, 300)
+          }
+        }
+      }
+
+      type()
+    </script>
+  </body>
+</html>
