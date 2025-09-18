@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
@@ -41,7 +41,7 @@
       }
       /* body {background-color: #431407; color:#fbbf24;} */
 
-      article {
+      section {
         --c: var(--text-color);
         --s0: calc(1.25em + 6px);
         --s1: calc(1.25em + 6px + 0.5em);
@@ -56,7 +56,7 @@
         color: var(--bg-color);
       }
 
-      article::before {
+      section::before {
         position: absolute;
         top: 0;
         left: 0;
@@ -69,13 +69,13 @@
         pointer-events: none;
         content: "";
       }
-      /* Small screen adjustment */
       @media (max-width: 600px) {
-        article::before {
+        section::before {
           height: 105%;
         }
       }
     </style>
+    <title>Shrin210</title>
   </head>
   <body class="px-5 pt-5 md:px-20">
     <div>
@@ -85,7 +85,7 @@
       <div class="relative overflow-clip rounded-xl md:max-w-52">
         <div id="skeleton" class="absolute flex h-[17em] w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700">
           <svg
-            class="h-10 w-10 text-gray-200 dark:text-gray-600"
+            class="h-full w-10 text-gray-200 dark:text-gray-600"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -98,11 +98,12 @@
         </div>
         <img
           id="real-image"
+          alt="Shrin210 Img"
           class="h-[17em] w-full scale-105 opacity-0 transition-all duration-[2000ms] md:h-full"
           src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png"
           onload="setTimeout(() => {       
-          document.getElementById('real-image').classList.remove('opacity-0', 'scale-105');
-          document.getElementById('real-image').classList.add('opacity-100', 'scale-100');
+          document.getElementById('real-image').classList.remove('opacity-0', 'scale-105','h-[7]');
+          document.getElementById('real-image').classList.add('opacity-100', 'scale-100', 'h-[17em]');
                 document.getElementById('skeleton').classList.add('hidden');
               }, 4000);"
         />
@@ -114,29 +115,81 @@
     </div>
 
     <div id="hidden-content" class="my-10 opacity-0 transition-opacity duration-500 ease-in-out md:my-20">
-      <article>
+      <section>
         <h2 class="animate-pulse text-xl font-extrabold">EMS Suite (PoC Project)</h2>
         <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a>
 
         <p class="mt-5"></p>
-        <p class="mb-3">- Built in Golang and deployed on AWS, EMS Suite (PoC) is fully cloud-native.<br /></p>
-        <p class="mb-3">- EMS Suite sets the foundation for next-generation business management systems.<br /></p>
+        <p class="mb-3">- This EMS Suite sets the foundation for next-generation business management systems.<br /></p>
         <p class="mb-3">- It adopts a permission-first approach, removing rigid role hierarchies.<br /></p>
+        <p class="mb-3">- Built in Golang and deployed on AWS, EMS Suite (PoC) is fully cloud-native.<br /></p>
 
         <div class="mt-5">Github:</div>
         <a href="https://github.com/Shrin210-98/CanteenCrowd-go-api" target="_blank" class="line-clamp-1 underline">
           github.com/Shrin210-98/CanteenCrowd-go-api
         </a>
         <div class="py-5"></div>
-      </article>
+      </section>
+      <footer
+        id="animateMe"
+        class="mt-28 translate-y-8 transform border-t-2 border-t-amber-400 p-6 pt-15 opacity-0 shadow-lg transition-all duration-[2000ms] ease-out will-change-transform"
+        aria-hidden="true"
+      >
+        <div class="flex flex-col justify-between gap-10 md:flex-row">
+          <div class="md:basis-8/12">
+            <h1 class="text-2xl font-semibold">Shrin<small class="pl-1">210</small></h1>
+            <p class="mt-2 text-justify">
+              “I craft React.js solutions that power businesses — role-based apps, video calls, seamless payments, dynamic forms, Firebase & Stripe
+              integrations, and data-driven reports & invoices, with automated workflows and scalable internal tools that drive efficiency across
+              domains.”
+            </p>
+          </div>
+
+          <div class="grid flex-none gap-2.5 text-sm">
+            <div
+              class="group relative flex items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200"
+            >
+              <button class="mr-0.5 mb-1 h-full w-full bg-stone-900">shrin210@outlook.com</button>
+              <button
+                class="copy-btn absolute -right-16 translate-y-2 cursor-pointer rounded-lg bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 px-3 py-1 text-sm font-bold text-stone-900 opacity-0 shadow transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus:opacity-100"
+                onclick="copyEmail()"
+              >
+                COPY
+              </button>
+            </div>
+
+            <div
+              class="group relative flex items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200"
+            >
+              <button
+                class="mr-0.5 mb-1 h-full w-full border-b-amber-300 bg-stone-900 px-5 group-hover:mr-0 group-hover:border-b-2"
+                onclick="blinkFocus()"
+              >
+                github.com/Shrin210-98
+              </button>
+            </div>
+
+            <div
+              class="group relative flex items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200 dark:hover:text-gray-900"
+            >
+              <button
+                class="mr-0.5 mb-1 h-full w-full bg-stone-900 transition-all duration-75 ease-in group-hover:bg-transparent group-hover:dark:bg-transparent"
+                onclick="window.location.href='https://github.com/Shrin210-98/resume';"
+              >
+                Resume
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-    <div class="py-20"></div>
+    <div id="pageEndSentinel" class="py-5"></div>
     <script>
       const words = [
         "Hey <span class='animate-wiggle inline-block'>👋</span> I'm Shrinath here,",
         "Ideas to apps, I engineer.",
         "Code I craft, explore with cheer,",
-        "My GitHub trails are waiting <a href='https://github.com/Shrin210-98' target='_blank' class='underline underline-offset-8 animate-pulse'> Here </an>",
+        "My GitHub trails are waiting <a id='github-focus' href='https://github.com/Shrin210-98' target='_blank' class='underline underline-offset-8 animate-pulse'> Here </an>",
       ]
       let i = 0
       let j = 0
@@ -160,8 +213,45 @@
               // Reveal the hidden content
               hiddenContent.classList.remove("opacity-0")
               hiddenContent.classList.add("opacity-100")
+
+              const target = document.getElementById("animateMe")
+              const sentinel = document.getElementById("pageEndSentinel")
+              function showTarget() {
+                target.classList.remove("opacity-0", "translate-y-8")
+                target.classList.add("opacity-100", "translate-y-0")
+              }
+              // IntersectionObserver watches the sentinel; when it enters viewport, we reached the end
+              const obs = new IntersectionObserver(
+                (entries, observer) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      showTarget()
+                      // If you want the animation only once, unobserve:
+                      observer.unobserve(entry.target)
+                      // If you want repeatable animation (hide when scrolling up), comment the line above
+                    }
+                  })
+                },
+                {
+                  root: null,
+                  threshold: 0, // sentinel visible at all -> consider end-of-page
+                },
+              )
+
+              obs.observe(sentinel)
+              // Fallback (some old browsers): check scroll position on scroll events
+              function fallbackCheck() {
+                const atBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2
+                if (atBottom) {
+                  showTarget()
+                  window.removeEventListener("scroll", fallbackCheck)
+                }
+              }
+              window.addEventListener("scroll", fallbackCheck)
+              // Footer Close --
             }
           }
+
           if (skipAnimation != 0) setTimeout(type, 0)
           else setTimeout(type, 40)
         } else if (j === currentWord.length) {
@@ -172,8 +262,48 @@
           }
         }
       }
-
       type()
+
+      function copyEmail() {
+        navigator.clipboard
+          .writeText("abc@mail.com")
+          .then(() => {
+            // Change button text temporarily
+            const copyBtn = document.querySelector(".copy-btn")
+            const originalText = copyBtn.textContent
+            copyBtn.textContent = "Copied!"
+            copyBtn.classList.add("-right-22")
+            setTimeout(() => {
+              copyBtn.textContent = originalText
+              copyBtn.classList.remove("-right-22")
+            }, 2000)
+          })
+          .catch((err) => {
+            alert("Failed to copy: " + err)
+          })
+      }
+
+      function blinkFocus() {
+        const el = document.getElementById("github-focus")
+        if (!el) return
+
+        // Scroll into view and focus effect
+        el.scrollIntoView({ behavior: "smooth", block: "center" })
+
+        let count = 0
+        const interval = setInterval(() => {
+          el.classList.toggle("bg-amber-400")
+          el.classList.toggle("text-stone-900")
+          count++
+          if (count === 6) {
+            // 3 full blinks (on/off cycles)
+            clearInterval(interval)
+            el.classList.remove("bg-amber-400") // reset to original
+            el.classList.remove("text-stone-900")
+            // el.classList.add("bg-gray-200")
+          }
+        }, 300) // blink speed (ms)
+      }
     </script>
   </body>
 </html>
