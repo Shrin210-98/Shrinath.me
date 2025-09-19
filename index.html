@@ -135,10 +135,10 @@
         class="mt-28 translate-y-8 transform border-t-2 border-t-amber-400 p-6 pt-15 opacity-0 shadow-lg transition-all duration-[2000ms] ease-out will-change-transform"
         aria-hidden="true"
       >
-        <div class="flex flex-col justify-between gap-10 md:flex-row">
+        <div class="flex flex-col items-end justify-between gap-10 md:flex-row">
           <div class="md:basis-8/12">
-            <h1 class="text-2xl font-semibold">Shrin<small class="pl-1">210</small></h1>
-            <p class="mt-2 text-justify">
+            <h1 class="text-2xl font-semibold">Shrin<small class="pl-1.5">210</small></h1>
+            <p class="mt-5 text-justify">
               “I craft React.js solutions that power businesses — role-based apps, video calls, seamless payments, dynamic forms, Firebase & Stripe
               integrations, and data-driven reports & invoices, with automated workflows and scalable internal tools that drive efficiency across
               domains.”
@@ -149,7 +149,7 @@
             <div
               class="group relative flex items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200"
             >
-              <button class="mr-0.5 mb-1 h-full w-full bg-stone-900">shrin210@outlook.com</button>
+              <button class="mr-0.5 mb-1 h-full w-full bg-stone-900 py-1">shrin210@outlook.com</button>
               <button
                 class="copy-btn absolute -right-16 translate-y-2 cursor-pointer rounded-lg bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 px-3 py-1 text-sm font-bold text-stone-900 opacity-0 shadow transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus:opacity-100"
                 onclick="copyEmail()"
@@ -162,7 +162,7 @@
               class="group relative flex items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200"
             >
               <button
-                class="mr-0.5 mb-1 h-full w-full border-b-amber-300 bg-stone-900 px-5 group-hover:mr-0 group-hover:border-b-2"
+                class="mr-0.5 mb-1 h-full w-full border-b-amber-300 bg-stone-900 px-5 py-1 group-hover:mr-0 group-hover:border-b-2"
                 onclick="blinkFocus()"
               >
                 github.com/Shrin210-98
@@ -173,7 +173,7 @@
               class="group relative flex items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200 dark:hover:text-gray-900"
             >
               <button
-                class="mr-0.5 mb-1 h-full w-full bg-stone-900 transition-all duration-75 ease-in group-hover:bg-transparent group-hover:dark:bg-transparent"
+                class="mr-0.5 mb-1 h-full w-full bg-stone-900 py-1 transition-all duration-75 ease-in group-hover:bg-transparent group-hover:dark:bg-transparent"
                 onclick="window.location.href='https://github.com/Shrin210-98/resume';"
               >
                 Resume
@@ -183,7 +183,7 @@
         </div>
       </footer>
     </div>
-    <div id="pageEndSentinel" class="py-5"></div>
+    <div id="pageEndSentinel" class="py-2"></div>
     <script>
       const words = [
         "Hey <span class='animate-wiggle inline-block'>👋</span> I'm Shrinath here,",
@@ -266,7 +266,7 @@
 
       function copyEmail() {
         navigator.clipboard
-          .writeText("abc@mail.com")
+          .writeText("shrin210@outlook.com")
           .then(() => {
             // Change button text temporarily
             const copyBtn = document.querySelector(".copy-btn")
@@ -295,12 +295,11 @@
           el.classList.toggle("bg-amber-400")
           el.classList.toggle("text-stone-900")
           count++
-          if (count === 6) {
-            // 3 full blinks (on/off cycles)
+          if (count === 8) {
+            // 4 full blinks (on/off cycles)
             clearInterval(interval)
-            el.classList.remove("bg-amber-400") // reset to original
+            el.classList.remove("bg-amber-400") 
             el.classList.remove("text-stone-900")
-            // el.classList.add("bg-gray-200")
           }
         }, 300) // blink speed (ms)
       }
