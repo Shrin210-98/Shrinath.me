@@ -73,6 +73,16 @@
           height: 105%;
         }
       }
+      @keyframes reveal {
+        from {
+          transform: scaleX(0);
+          transform-origin: left;
+        }
+        to {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
     </style>
     <title>Shrin210</title>
   </head>
@@ -80,15 +90,15 @@
     <!-- <div>
       <h1 class="mb-10 text-center text-2xl">Shrinath [ Web Dev ]</h1>
     </div> -->
-    <div class="fixed -top-1/12 -right-0 -left-10 -z-0 hidden justify-between md:flex">
-      <div class="relative -top-[100px] h-64 w-64 rotate-90">
+    <div class="fixed -top-1/12 -right-0 left-10 -z-0 hidden justify-between md:flex">
+      <div class="relative -top-[150px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
         <div class="border-opacity-50 h-full w-full border-7 border-amber-300/30"></div>
-        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-9 border-amber-300/90"></div>
+        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/80"></div>
       </div>
 
-      <div class="relative h-64 w-64">
+      <div class="relative -top-[150px] -right-[200px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
         <div class="border-opacity-50 h-full w-full border-7 border-amber-300/30"></div>
-        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-9 border-amber-300/90"></div>
+        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/80"></div>
       </div>
     </div>
     <div class="fixed -top-1 -right-0 -left-10 -z-0 flex md:hidden">
@@ -101,7 +111,10 @@
     <div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center md:justify-center">
       <div id="shr-webdev" class="flex flex-col gap-4 opacity-0 transition-all duration-700">
         <div class="relative overflow-clip rounded-xl md:max-w-52">
-          <div id="skeleton" class="absolute flex h-full w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700">
+          <div
+            id="skeleton"
+            class="absolute flex h-full w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 md:hidden dark:bg-gray-700"
+          >
             <svg
               class="h-full w-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"
@@ -140,10 +153,10 @@
       </div>
     </div>
 
-    <div id="hidden-content" class="my-10 opacity-0 transition-opacity duration-500 ease-in-out md:my-20">
+    <div id="hidden-content" class="my-9 opacity-0 transition-opacity duration-500 ease-in-out md:my-20">
       <section>
         <h2 class="animate-pulse text-xl font-extrabold">EMS Suite (PoC Project)</h2>
-        <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a>
+        <!-- <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a> -->
 
         <p class="mt-5"></p>
         <p class="mb-3">- This EMS Suite sets the foundation for next-generation business management systems.<br /></p>
@@ -201,7 +214,7 @@
             >
               <button
                 class="mr-0.5 mb-1 h-full w-full bg-stone-900 py-1 transition-all duration-75 ease-in group-hover:bg-transparent group-hover:dark:bg-transparent"
-                onclick="window.location.href='https://github.com/Shrin210-98/resume';"
+                onclick="window.location.href='https://shrin210-98.github.io/resume'"
               >
                 Resume
               </button>
