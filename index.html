@@ -83,6 +83,16 @@
           transform-origin: left;
         }
       }
+      @keyframes reveal-top {
+        from {
+          transform: scaleY(0);
+          transform-origin: top;
+        }
+        to {
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+      }
     </style>
     <title>Shrin210</title>
   </head>
@@ -111,21 +121,8 @@
     <div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center md:justify-center">
       <div id="shr-webdev" class="flex flex-col gap-4 opacity-0 transition-all duration-700">
         <div class="relative overflow-clip rounded-xl md:max-w-52">
-          <div
-            id="skeleton"
-            class="absolute flex h-full w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 md:hidden dark:bg-gray-700"
-          >
-            <svg
-              class="h-full w-10 text-gray-200 dark:text-gray-600"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 18"
-            >
-              <path
-                d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"
-              />
-            </svg>
+          <div id="skeleton" class="hidden h-full w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700">
+            <span id="icon-picture"></span>
           </div>
           <img
             id="real-image"
@@ -153,13 +150,13 @@
       </div>
     </div>
 
-    <div id="hidden-content" class="my-9 opacity-0 transition-opacity duration-500 ease-in-out md:my-20">
+    <div id="hidden-content" class="my-9 opacity-0 md:my-20">
       <section>
         <h2 class="animate-pulse text-xl font-extrabold">EMS Suite (PoC Project)</h2>
         <!-- <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a> -->
 
         <p class="mt-5"></p>
-        <p class="mb-3">- This EMS Suite sets the foundation for next-generation business management systems.<br /></p>
+        <p class="mb-3">- This EMS Suite sets the foundation for next-gen flexible business management systems.<br /></p>
         <p class="mb-3">- It adopts a permission-first approach, removing rigid Role hierarchies.<br /></p>
         <p class="mb-3">- Developed in Golang and Deployed on AWS, Built as a Pure cloud-native solution.<br /></p>
 
@@ -221,7 +218,7 @@
               class="group relative flex cursor-pointer items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200 dark:hover:text-gray-900"
             >
               <button
-                class="mr-0.5 mb-1 h-full  w-full bg-stone-900 py-1 transition-all duration-75 ease-in group-hover:bg-transparent group-hover:dark:bg-transparent"
+                class="mr-0.5 mb-1 h-full w-full bg-stone-900 py-1 transition-all duration-75 ease-in group-hover:bg-transparent group-hover:dark:bg-transparent"
                 onclick="window.location.href='https://shrin210-98.github.io/resume'"
               >
                 Resume
@@ -248,20 +245,19 @@
 
       function type() {
         currentWord = words[i]
-        let completedLines = words.slice(0, i).join("<br>")
+        let completedLines = words.slice(0, i).join("<br/>")
         let currentLine = currentWord.substring(0, j + 1)
-        document.getElementById("typewriter").innerHTML = completedLines + (completedLines ? "<br>" : "") + currentLine
+        document.getElementById("typewriter").innerHTML = completedLines + (completedLines ? "<br/>" : "") + currentLine
         if (j < currentWord.length) {
           j++
 
           if (currentWord[j + 3] == "<") skipAnimation += 1
           if (skipAnimation == 2) {
             skipAnimation = 0
-
             if (i == 3) {
               // Reveal the hidden content
               hiddenContent.classList.remove("opacity-0")
-              hiddenContent.classList.add("opacity-100")
+              hiddenContent.classList.add("opacity-100", "animate-[reveal-top_1s_ease-out_forwards]")
 
               const target = document.getElementById("animateMe")
               const sentinel = document.getElementById("pageEndSentinel")
@@ -361,6 +357,7 @@
         const icons = {
           qrCode: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>`,
           copy: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>`,
+          picture: `<svg class="h-full w-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18"><path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/></svg>`,
         }
         // Object.entries(icons).forEach(([key, svg]) => {
         //   const el = document.getElementById(`icon-${key}`)
