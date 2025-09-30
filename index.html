@@ -260,6 +260,7 @@
           if (currentWord[j + 3] == "<") skipAnimation += 1
           if (skipAnimation == 2) {
             skipAnimation = 0
+
             if (i == 3) {
               // Reveal the hidden content
               hiddenContent.classList.remove("opacity-0")
@@ -267,9 +268,10 @@
 
               const target = document.getElementById("animateMe")
               const sentinel = document.getElementById("pageEndSentinel")
+
+              target.classList.remove("hidden")
+
               function showTarget() {
-                target.classList.remove("hidden")
-                // sentinel.classList.remove("hidden")
                 // void target.offsetWidth // Force a reflow to ensure the browser registers the element as visible
                 target.classList.remove("opacity-0", "translate-y-8")
                 target.classList.add("opacity-100", "translate-y-0")
