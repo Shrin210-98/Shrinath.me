@@ -35,10 +35,10 @@
         font-family: var(--font-mono);
         font-weight: 400;
         line-height: 1.45;
-        background-color: var(--bg-color);
+        background-color: var(--bg-color);   /* background-color: #431407; color:#fbbf24; */
         color: var(--text-color);
       }
-      /* body {background-color: #431407; color:#fbbf24;} */
+    
 
       section {
         --c: var(--text-color);
@@ -54,7 +54,6 @@
         background: var(--c) padding-box;
         color: var(--bg-color);
       }
-
       section::before {
         position: absolute;
         top: 0;
@@ -106,24 +105,23 @@
     </style>
     <title>Shrin210</title>
   </head>
-  <body class="relative overflow-x-hidden px-5 pt-5 md:px-20">
-    <!-- <div>
-      <h1 class="mb-10 text-center text-2xl">Shrinath [ Web Dev ]</h1>
-    </div> -->
-    <div class="fixed -top-1/12 -right-0 -left-0 -z-0 hidden justify-between md:flex">
-      <div class="relative -top-[150px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
-        <div class="border-opacity-50 h-full w-full border-7 border-amber-300/30"></div>
-        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/80"></div>
-      </div>
 
+  <body class="relative overflow-x-hidden px-5 pt-5 md:px-20">
+    <!-- <div><h1 class="mb-10 text-center text-2xl">Shrinath [ Web Dev ]</h1></div> -->
+
+    <div class="fixed -top-1/12 -right-0 -left-0 hidden justify-between md:flex">
+      <div class="relative -top-[150px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
+        <div class="border-opacity-50 h-full w-full border-8 border-amber-300/30"></div>
+        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/70"></div>
+      </div>
       <div class="relative -top-[150px] -right-[200px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
-        <div class="border-opacity-50 h-full w-full border-7 border-amber-300/30"></div>
-        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/80"></div>
+        <div class="border-opacity-50 h-full w-full border-8 border-amber-300/30"></div>
+        <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/70"></div>
       </div>
     </div>
     <div class="fixed -top-1 -right-0 -left-10 -z-0 flex md:hidden">
       <div class="relative -top-[100px] h-[50vh] w-[100vw] rotate-45">
-        <div class="border-opacity-50 h-full w-full border-7 border-amber-300/20"></div>
+        <div class="border-opacity-50 h-full w-full border-8 border-amber-300/20"></div>
         <div class="border-opacity-50 absolute -bottom-10 -left-10 h-full w-full border-12 border-amber-300/50"></div>
       </div>
     </div>
@@ -176,6 +174,7 @@
     </section>
 
     <div id="pageEndSentinel" class="mb-10"></div>
+
     <footer
       id="animateMe"
       class="hidden translate-y-8 transform border-t-2 border-t-amber-400 px-5 py-10 opacity-0 shadow-lg transition-all duration-[2000ms] ease-out will-change-transform md:pb-20"
@@ -236,6 +235,7 @@
         </div>
       </div>
     </footer>
+
     <script>
       const words = [
         "Hey <span class='animate-wiggle inline-block'>👋</span> I'm Shrinath here,",
