@@ -124,7 +124,7 @@
     <div class="fixed -top-1 -right-0 -left-10 -z-0 flex md:hidden">
       <div class="relative -top-[100px] h-[50vh] w-[100vw] rotate-45">
         <div class="border-opacity-50 h-full w-full border-7 border-amber-300/20"></div>
-        <div class="border-opacity-50 absolute -bottom-10 -left-10 h-full w-full border-9 border-amber-300/50"></div>
+        <div class="border-opacity-50 absolute -bottom-10 -left-10 h-full w-full border-12 border-amber-300/50"></div>
       </div>
     </div>
 
@@ -270,7 +270,7 @@
               function showTarget() {
                 target.classList.remove("hidden")
                 sentinel.classList.remove("hidden")
-                void target.offsetWidth // Force a reflow to ensure the browser registers the element as visible
+                // void target.offsetWidth // Force a reflow to ensure the browser registers the element as visible
                 target.classList.remove("opacity-0", "translate-y-8")
                 target.classList.add("opacity-100", "translate-y-0")
               }
