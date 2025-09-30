@@ -93,6 +93,16 @@
           transform-origin: top;
         }
       }
+      @keyframes reveal-bottom {
+        from {
+          transform: scaleY(0);
+          transform-origin: bottom;
+        }
+        to {
+          transform: scaleY(1);
+          transform-origin: bottom;
+        }
+      }
     </style>
     <title>Shrin210</title>
   </head>
@@ -131,7 +141,7 @@
             src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png"
             onload="setTimeout(() => {       
                 document.getElementById('real-image').classList.remove('opacity-0', 'scale-105','h-[7]');
-                document.getElementById('real-image').classList.add('opacity-100', 'scale-100', 'h-[17em]');
+                document.getElementById('real-image').classList.add('opacity-100', 'scale-100', 'h-[17em]','animate-[reveal-bottom_1s_ease-out_forwards]');
                 
                 document.getElementById('img-name').classList.remove('opacity-0', 'scale-95');
                 document.getElementById('img-name').classList.add('opacity-100', 'scale-100');
@@ -169,7 +179,7 @@
 
       <footer
         id="animateMe"
-        class="mt-28 translate-y-8 transform border-t-2 border-t-amber-400 p-6 pt-15 opacity-0 shadow-lg transition-all duration-[2000ms] ease-out will-change-transform"
+        class="mt-28 hidden translate-y-8 transform border-t-2 border-t-amber-400 p-6 pt-15 opacity-0 shadow-lg transition-all duration-[2000ms] ease-out will-change-transform"
         aria-hidden="true"
       >
         <div class="flex flex-col items-end justify-between gap-10 md:flex-row">
@@ -226,8 +236,7 @@
             </div>
           </div>
         </div>
-
-        <div id="pageEndSentinel" class="py-5"></div>
+        <div id="pageEndSentinel" class="mt-10"></div>
       </footer>
     </div>
     <script>
@@ -262,6 +271,8 @@
               const target = document.getElementById("animateMe")
               const sentinel = document.getElementById("pageEndSentinel")
               function showTarget() {
+                target.classList.remove("hidden")
+                void target.offsetWidth // Force a reflow to ensure the browser registers the element as visible
                 target.classList.remove("opacity-0", "translate-y-8")
                 target.classList.add("opacity-100", "translate-y-0")
               }
