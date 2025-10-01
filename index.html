@@ -127,14 +127,14 @@
 
     <div class="mt-5 flex flex-col-reverse items-center gap-10 md:ml-10 md:flex md:flex-row md:items-center md:justify-center">
       <div id="shr-webdev" class="flex flex-col gap-4 opacity-0 transition-all duration-700">
-        <div class="relative overflow-clip rounded-xl md:max-w-52">
+        <div class="relative overflow-clip rounded-md md:max-w-52">
           <div id="skeleton" class="hidden h-full w-full animate-pulse items-center justify-center rounded-xl bg-gray-300 dark:bg-gray-700">
             <span id="icon-picture"></span>
           </div>
           <img
             id="real-image"
             alt="Shrin210 Img"
-            class="h-[17em] w-full scale-105 opacity-0 transition-all duration-[2000ms] md:h-full"
+            class="h-[17em] w-full scale-105 opacity-0 transition-all duration-[2000ms] md:h-full shadow-amber-200 shadow-2xl"
             src="https://shrin210-98.github.io/assets/shrin-images/20250910_0046_Seinen%20Anime%20Style_remix_01k4qydtraebzas1md6p5r4xr8.png"
             onload="setTimeout(() => {       
                 document.getElementById('real-image').classList.remove('opacity-0', 'scale-105','h-[7]');
@@ -149,7 +149,7 @@
           />
         </div>
 
-        <div id="skeleton-img-name" class="h-6 w-full animate-pulse rounded-lg bg-gray-300 md:max-w-52 dark:bg-gray-700"></div>
+        <div id="skeleton-img-name" class="h-6 w-full animate-pulse bg-gray-300 md:max-w-52 dark:bg-gray-700"></div>
         <div id="img-name" class="text-center text-amber-500 opacity-0 transition-all duration-[4000ms] ease-in-out">Shrinath [WebDev]</div>
       </div>
       <div>
