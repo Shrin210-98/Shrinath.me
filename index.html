@@ -35,10 +35,9 @@
         font-family: var(--font-mono);
         font-weight: 400;
         line-height: 1.45;
-        background-color: var(--bg-color);   /* background-color: #431407; color:#fbbf24; */
+        background-color: var(--bg-color); /* background-color: #431407; color:#fbbf24; */
         color: var(--text-color);
       }
-    
 
       section {
         --c: var(--text-color);
@@ -82,14 +81,14 @@
           transform-origin: left;
         }
       }
-      @keyframes reveal-top {
-        from {
-          transform: scaleY(0);
-          transform-origin: top;
+      @keyframes reveal-section {
+        0% {
+          transform: scaleX(0);
+          transform-origin: right;
         }
-        to {
-          transform: scaleY(1);
-          transform-origin: top;
+        100% {
+          transform: scaleX(1);
+          transform-origin: right;
         }
       }
       @keyframes reveal-bottom {
@@ -111,18 +110,18 @@
 
     <div class="fixed -top-1/12 -right-0 -left-0 hidden justify-between md:flex">
       <div class="relative -top-[150px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
-        <div class="border-opacity-50 h-full w-full border-8 border-amber-300/30"></div>
+        <div class="border-opacity-50 h-full w-full border-9 border-amber-300/30"></div>
         <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/70"></div>
       </div>
       <div class="relative -top-[150px] -right-[200px] h-64 w-64 origin-left rotate-90 animate-[reveal_1s_ease-out_forwards]">
-        <div class="border-opacity-50 h-full w-full border-8 border-amber-300/30"></div>
+        <div class="border-opacity-50 h-full w-full border-9 border-amber-300/30"></div>
         <div class="border-opacity-50 absolute -right-10 -bottom-10 h-full w-full border-12 border-amber-300/70"></div>
       </div>
     </div>
     <div class="fixed -top-1 -right-0 -left-10 -z-0 flex md:hidden">
       <div class="relative -top-[100px] h-[50vh] w-[100vw] rotate-45">
         <div class="border-opacity-50 h-full w-full border-8 border-amber-300/20"></div>
-        <div class="border-opacity-50 absolute -bottom-10 -left-10 h-full w-full border-12 border-amber-300/50"></div>
+        <div class="border-opacity-50 absolute -bottom-10 -left-10 h-full w-full border-10 border-amber-300/50"></div>
       </div>
     </div>
 
@@ -151,14 +150,14 @@
         </div>
 
         <div id="skeleton-img-name" class="h-6 w-full animate-pulse rounded-lg bg-gray-300 md:max-w-52 dark:bg-gray-700"></div>
-        <div id="img-name" class="text-center opacity-0 transition-all duration-[4000ms] ease-in-out">Shrinath [WebDev]</div>
+        <div id="img-name" class="text-center text-amber-500 opacity-0 transition-all duration-[4000ms] ease-in-out">Shrinath [WebDev]</div>
       </div>
       <div>
         <h1 id="typewriter" class="ml-5 font-bold md:text-left md:text-xl"></h1>
       </div>
     </div>
 
-    <section id="hidden-content" class="mt-10 opacity-0 md:my-20">
+    <section id="hidden-content" class="mt-10 hidden opacity-0 md:my-20">
       <h2 class="animate-pulse text-xl font-extrabold">EMS Suite (PoC Project)</h2>
       <!-- <a href="https://app.cc-suite.com" target="_blank" class="line-clamp-1 underline">app.cc-suite.com</a> -->
 
@@ -188,7 +187,7 @@
               class="flex items-center gap-1 text-amber-200"
               onclick="window.open('https://shrin210-98.github.io/assets/shrin-images/qrcode_shrin210-98.github.io.png', '_blank')"
             >
-              [<span id="icon-qrCode"></span>]
+              [<span id="icon-qrCode" class="text-amber-300"></span>]
             </button>
           </div>
           <p class="mt-5 text-justify">
@@ -210,18 +209,6 @@
               <span id="icon-copy"></span>
             </button>
           </div>
-
-          <div
-            class="group relative flex cursor-pointer items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200"
-          >
-            <button
-              class="mr-0.5 mb-1 h-full w-full border-b-amber-300 bg-stone-900 px-5 py-1 group-hover:mr-0 group-hover:border-b-2"
-              onclick="blinkFocus()"
-            >
-              # github.com/Shrin210-98
-            </button>
-          </div>
-
           <div
             class="group relative flex cursor-pointer items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200 dark:hover:text-gray-900"
           >
@@ -230,6 +217,16 @@
               onclick="window.location.href='https://shrin210-98.github.io/resume'"
             >
               Resume
+            </button>
+          </div>
+          <div
+            class="group relative flex cursor-pointer items-center justify-center bg-gradient-to-br from-amber-600 via-amber-400 to-amber-200 shadow-md focus:ring-4 dark:text-amber-200"
+          >
+            <button
+              class="mr-0.5 mb-1 h-full w-full border-b-amber-300 bg-stone-900 px-5 py-1 group-hover:mr-0 group-hover:border-b-2"
+              onclick="blinkFocus()"
+            >
+              # github.com/Shrin210-98
             </button>
           </div>
         </div>
@@ -263,8 +260,8 @@
 
             if (i == 3) {
               // Reveal the hidden content
-              hiddenContent.classList.remove("opacity-0")
-              hiddenContent.classList.add("opacity-100", "animate-[reveal-top_1s_ease-out_forwards]")
+              hiddenContent.classList.remove("hidden", "opacity-0")
+              hiddenContent.classList.add("opacity-100", "animate-[reveal-section_1s_ease-out_forwards]")
 
               const target = document.getElementById("animateMe")
               const sentinel = document.getElementById("pageEndSentinel")
